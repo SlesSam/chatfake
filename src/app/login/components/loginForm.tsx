@@ -32,7 +32,7 @@ export default function LoginForm() {
       <div className="bg-white p-10 rounded-2xl shadow-xl w-[400px] space-y-6">
         {/* Logo y título */}
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-indigo-600">Course Programming</h1>
+          <h1 className="text-3xl font-bold text-indigo-600">Welcom to ChatAI</h1>
           <p className="text-gray-700 mt-2">Welcome back! Please enter your email and password to enter the application.</p>
         </div>
 
