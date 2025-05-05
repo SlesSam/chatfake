@@ -6,6 +6,8 @@ import { Message } from '@/types/message';
 import { useParams } from 'next/navigation';
 import EmptyChat from './chatEmpty';
 
+
+
 export default function ChatMessages() {
   const [messages, setMessages] = useState<Message[]>([]);
   const params = useParams();
