@@ -24,3 +24,56 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.chat-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.chat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #a5a5a5 transparent;
+}
+
+.chat-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+/* para las burbujas del chat  */
+
+.chat-bubble {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  word-wrap: break-word;
+}
+
+.chat-bubble-user {
+  background-color: #e0e7ff; /* azul clarito */
+  align-self: flex-end;
+  margin-left: auto;
+  text-align: right;
+}
+
+.chat-bubble-ai {
+  background-color: #f1f5f9; /* gris claro */
+  align-self: flex-start;
+  margin-right: auto;
+  text-align: left;
+}

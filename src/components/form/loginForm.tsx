@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import rawUsers from '@/data/data.json';
+import rawUsers from '@/data/user.json';
 import { User } from '@/types/user';
 
 // Forzamos a TypeScript a saber que esto es un array de User

@@ -1,0 +1,87 @@
+[
+    {
+        "chatId": "101",
+        "messages": [
+            {
+                "id": "1",
+                "sender": "user",
+                "text": "¿Cómo uso useEffect?",
+                "timestamp": "2025-05-04T12:00:00Z"
+            },
+            {
+                "id": "2",
+                "sender": "ai",
+                "text": "useEffect se usa para efectos secundarios en React.",
+                "timestamp": "2025-05-04T12:01:00Z"
+            }
+        ]
+    },
+    {
+        "chatId": "103",
+        "messages": [
+            {
+                "id": "1",
+                "sender": "user",
+                "text": "¿Qué es GPT-4?",
+                "timestamp": "2025-05-05T08:00:00Z"
+            },
+            {
+                "id": "2",
+                "sender": "ai",
+                "text": "GPT-4 es un modelo de lenguaje grande de OpenAI.",
+                "timestamp": "2025-05-05T08:01:00Z"
+            }
+        ]
+    },
+    {
+        "chatId": "102",
+        "messages": [
+            {
+                "id": "2",
+                "sender": "user",
+                "text": "Ayuda con CSS",
+                "timestamp": "2025-05-05T08:00:00Z"
+            },
+            {
+                "id": "3",
+                "sender": "ai",
+                "text": "Css en con el flexbox",
+                "timestamp": "2025-05-05T08:01:00Z"
+            }
+        ]
+    },
+    {
+        "chatId": "102",
+        "messages": [
+            {
+                "id": "2",
+                "sender": "user",
+                "text": "Ayuda con CSS",
+                "timestamp": "2025-05-05T08:00:00Z"
+            },
+            {
+                "id": "3",
+                "sender": "ai",
+                "text": "Css en con el flexbox",
+                "timestamp": "2025-05-05T08:01:00Z"
+            }
+        ]
+    },
+    {
+        "chatId": "104",
+        "messages": [
+            {
+                "id": "2",
+                "sender": "user",
+                "text": "¿Cómo funciona el hoisting?",
+                "timestamp": "2025-05-05T08:00:00Z"
+            },
+            {
+                "id": "3",
+                "sender": "ai",
+                "text": "El hoisting es un comportamiento de JavaScript.",
+                "timestamp": "2025-05-05T08:01:00Z"
+            }
+        ]
+    }
+]

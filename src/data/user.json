@@ -9,6 +9,7 @@
     "id": "2",
     "name": "Alex",
     "email": "alex@example.com",
-    "password": "12345"
+    "password": "12345",
+    "photo": "https://i.pravatar.cc/40"
   }
 ]
