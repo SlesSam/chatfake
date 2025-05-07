@@ -18,8 +18,18 @@ export default function ChatList({ userId }: Props) {
   const router = useRouter();
 
   useEffect(() => {
-    const allChats = chatsData as Chat[];
-    const filtered = allChats.filter(chat => chat.userId === userId);
+    const stored = localStorage.getItem('chats');
+    const localChats = stored ? JSON.parse(stored) as Chat[] : [];
+
+    const baseChats = chatsData as Chat[];
+    const combined = [...localChats];
+
+    baseChats.forEach(jsonChat => {
+      const exists = localChats.some(c => c.id === jsonChat.id);
+      if (!exists) combined.push(jsonChat);
+    });
+
+    const filtered = combined.filter(chat => chat.userId === userId);
     setUserChats(filtered);
   }, [userId]);
 
@@ -28,6 +38,12 @@ export default function ChatList({ userId }: Props) {
   const handleDelete = (id: string) => {
     const updated = userChats.filter(chat => chat.id !== id);
     setUserChats(updated);
+
+    // Actualizar también localStorage
+    const stored = localStorage.getItem('chats');
+    const localChats = stored ? JSON.parse(stored) as Chat[] : [];
+    const newStorage = localChats.filter(c => c.id !== id);
+    localStorage.setItem('chats', JSON.stringify(newStorage));
   };
 
   const handleEdit = (id: string, currentTitle: string) => {
@@ -41,9 +57,16 @@ export default function ChatList({ userId }: Props) {
     );
     setUserChats(updated);
     setEditingId(null);
+
+    // Actualizar localStorage también
+    const stored = localStorage.getItem('chats');
+    const localChats = stored ? JSON.parse(stored) as Chat[] : [];
+    const updatedStorage = localChats.map(chat =>
+      chat.id === id ? { ...chat, title: editTitle } : chat
+    );
+    localStorage.setItem('chats', JSON.stringify(updatedStorage));
   };
 
-  // División de chats en secciones
   const yourChats = userChats.slice(0, 4);
   const last7Days = userChats.slice(4);
 
