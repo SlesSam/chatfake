@@ -4,14 +4,14 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import rawUsers from '@/data/user.json';
 import { User } from '@/types/user';
-import { Eye, EyeOff } from 'lucide-react'; // 👈 Instala lucide-react si no lo tienes
+import { Eye, EyeOff } from 'lucide-react'; 
 
 const users = rawUsers as User[];
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // 👁️ control
+  const [showPassword, setShowPassword] = useState(false); 
   const [error, setError] = useState('');
   const router = useRouter();
 
