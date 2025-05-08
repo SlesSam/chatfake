@@ -91,7 +91,7 @@ export default function ChatPage() {
 
   return (
     <main>
-      <section className="flex-1 flex flex-col bg-[#f7f9fc]">
+      <section className="flex flex-col h-full">
         <ChatMessages messages={messages}/>
 
         <ChatInput onSend={handleSend} />
