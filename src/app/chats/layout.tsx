@@ -3,12 +3,14 @@ import ChatSidebar from "@/components/chats/chatSidebar";
 
 export default function ChatLayout({ children }: { children: React.ReactNode }) {
     return (
-        <main className="flex h-screen">
+        <main className="flex h-screen overflow-hidden">
 
             <ChatSidebar />
-            <section className="flex-1 flex flex-col bg-[#f7f9fc]">
+            <section className="flex-1 flex flex-col bg-[#f7f9fc] overflow-hidden">
                 <ChatHeader />
-                {children}
+                <div className="flex-1 overflow-y-auto">
+                    {children}
+                </div>
             </section>
         </main>
     );

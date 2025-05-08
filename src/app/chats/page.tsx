@@ -1,18 +1,13 @@
 import EmptyChat from "@/components/chats/chatEmpty";
-// import ChatInput from "@/components/chats/chatInput";
-
-
 
 export default function ChatPage() {
 
 
   return (
-    <main className="chat-card">
+    <main>
       <EmptyChat />
       hola welcom to chat
-      {/* <ChatInput onSend={function (text: string): void {
-              throw new Error("Function not implemented.");
-          } } /> */}
+
     </main>
   );
 }

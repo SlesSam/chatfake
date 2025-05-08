@@ -76,13 +76,13 @@ export default function ChatList({ userId }: Props) {
     return (
       <div
         key={chat.id}
-        className={`p-3 rounded-lg shadow-sm group transition cursor-pointer ${
+        className={`p-3 rounded-md shadow-sm group transition cursor-pointer ${
           isActive ? 'bg-indigo-600 text-white' : 'bg-white hover:bg-gray-100 text-gray-800'
         }`}
       >
         <div className="flex justify-between items-center">
           <div
-            className="flex-1"
+            className="flex-1 min-w-0"
             onClick={() => router.push(`/chats/${chat.id}`)}
           >
             {editingId === chat.id ? (
@@ -117,7 +117,7 @@ export default function ChatList({ userId }: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 py-4 px-2">
       {userChats.length === 0 ? (
         <p className="text-gray-500 italic text-sm">No hay chats disponibles</p>
       ) : (

@@ -66,11 +66,6 @@ export default function ChatPage() {
       const storedChats = localStorage.getItem('chats');
       const allChats = storedChats ? JSON.parse(storedChats) : [];
   
-      // const updatedChats = allChats.map((c: { id: string; title: string; lastMessage: string; updatedAt: string }) =>
-      //   c.id === id
-      //     ? { ...c, title: text, lastMessage: aiMessage.text, updatedAt: timestamp }
-      //     : c
-      // );
 
       const updatedChats = allChats.map((c: { id: string; title: string; lastMessage: string; updatedAt: string }) =>
         c.id === id
@@ -84,6 +79,8 @@ export default function ChatPage() {
       );
   
       localStorage.setItem('chats', JSON.stringify(updatedChats));
+      const event = new CustomEvent('refreshChats');
+      window.dispatchEvent(event);
     };
   
     const getOtherMessages = (currentId: string) => {
@@ -93,7 +90,7 @@ export default function ChatPage() {
     };
 
   return (
-    <main className="chat-card">
+    <main>
       <section className="flex-1 flex flex-col bg-[#f7f9fc]">
         <ChatMessages messages={messages}/>
 

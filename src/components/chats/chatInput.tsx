@@ -8,31 +8,47 @@ type Props = {
 export default function ChatInput({ onSend }: Props) {
     const [text, setText] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSend = () => {
         const trimmed = text.trim();
         if (!trimmed) return;
-        onSend(trimmed);          // 🔁 Envía el mensaje al padre
-        setText('');              // 🧽 Limpia el input
-    };
+        onSend(trimmed);
+        setText('');
+      };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          handleSend();
+        }
+      };
 
     return (
-        <footer >
-            <form onSubmit={handleSubmit} className="flex gap-2">
-                <input
-                    type="text"
+
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            handleSend();
+          }} className="w-full px-6 py-4 bg-white border-t flex items-end">
+            <div  className="flex w-full max-w-4xl mx-auto items-center gap-2">
+                <textarea
+                    rows={1}
+                    maxLength={500}
+                    onKeyDown={handleKeyDown}
                     placeholder="What's in your mind?..."
-                    className="flex-1 p-3 border rounded-full bg-gray-100 focus:outline-none"
+                    className="w-full resize-none max-h-40 min-h-[48px] overflow-y-auto rounded-xl border border-gray-300 bg-gray-100 px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 />
                 <button
                     type="submit"
-                    className="bg-indigo-600 text-white px-4 py-2 rounded-full"
+                    // className="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition"
+                    className="justify-center bg-indigo-500 text-white rounded-full p-3 hover:bg-indigo-700 disabled:opacity-50"
+                    disabled={!text.trim()}
+                    title="Enviar"
                 >
                     ➤
                 </button>
-            </form>
-        </footer>
+            </div>
+        </form>
+
     );
 }
