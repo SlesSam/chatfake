@@ -42,8 +42,6 @@ export default function ChatSidebar() {
   return (
     <aside className="w-[300px] bg-white border-r p-4">
       <div className="flex flex-col justify-between h-full">
-
-        {/* 🔝 PARTE SUPERIOR */}
         <div>
           <h1 className="text-xl font-bold flex items-center gap-2 mb-4">
             <Bot className="text-indigo-600" />
@@ -61,8 +59,6 @@ export default function ChatSidebar() {
             {user && <ChatList userId={user.id} key={refreshKey} />}
           </div>
         </div>
-
-        {/* 🔻 PARTE INFERIOR (ajustada abajo) */}
         <div className="pt-6 border-t flex flex-col gap-2">
           <button className="flex items-center gap-2 px-4 py-2 rounded-full border hover:bg-gray-100 transition text-sm">
             <Settings className="w-4 h-4" />
