@@ -27,7 +27,7 @@ export default function ChatInput({ onSend }: Props) {
         <form onSubmit={(e) => {
             e.preventDefault();
             handleSend();
-          }} className="w-full px-6 py-4 bg-white border-t flex items-end">
+          }} className="w-full px-4 py-5 bg-white border-t flex items-end">
             <div  className="flex w-full max-w-4xl mx-auto items-center gap-2">
                 <textarea
                     rows={1}
@@ -40,7 +40,6 @@ export default function ChatInput({ onSend }: Props) {
                 />
                 <button
                     type="submit"
-                    // className="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition"
                     className="justify-center bg-indigo-500 text-white rounded-full p-3 hover:bg-indigo-700 disabled:opacity-50"
                     disabled={!text.trim()}
                     title="Enviar"
