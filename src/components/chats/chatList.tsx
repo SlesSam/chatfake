@@ -19,30 +19,30 @@ export default function ChatList({ userId }: Props) {
 
   useEffect(() => {
     const stored = localStorage.getItem('chats');
-    const localChats = stored ? JSON.parse(stored) as Chat[] : [];
+    const localChats = stored ? (JSON.parse(stored) as Chat[]) : [];
 
     const baseChats = chatsData as Chat[];
     const combined = [...localChats];
 
-    baseChats.forEach(jsonChat => {
-      const exists = localChats.some(c => c.id === jsonChat.id);
+    baseChats.forEach((jsonChat) => {
+      const exists = localChats.some((c) => c.id === jsonChat.id);
       if (!exists) combined.push(jsonChat);
     });
 
-    const filtered = combined.filter(chat => chat.userId === userId);
+    const filtered = combined.filter((chat) => chat.userId === userId);
     setUserChats(filtered);
   }, [userId]);
 
   const currentChatId = pathname.split('/chats/')[1];
 
   const handleDelete = (id: string) => {
-    const updated = userChats.filter(chat => chat.id !== id);
+    const updated = userChats.filter((chat) => chat.id !== id);
     setUserChats(updated);
 
     // Actualizar también localStorage
     const stored = localStorage.getItem('chats');
-    const localChats = stored ? JSON.parse(stored) as Chat[] : [];
-    const newStorage = localChats.filter(c => c.id !== id);
+    const localChats = stored ? (JSON.parse(stored) as Chat[]) : [];
+    const newStorage = localChats.filter((c) => c.id !== id);
     localStorage.setItem('chats', JSON.stringify(newStorage));
   };
 
@@ -52,7 +52,7 @@ export default function ChatList({ userId }: Props) {
   };
 
   const handleEditSave = (id: string) => {
-    const updated = userChats.map(chat =>
+    const updated = userChats.map((chat) =>
       chat.id === id ? { ...chat, title: editTitle } : chat
     );
     setUserChats(updated);
@@ -60,8 +60,8 @@ export default function ChatList({ userId }: Props) {
 
     // Actualizar localStorage también
     const stored = localStorage.getItem('chats');
-    const localChats = stored ? JSON.parse(stored) as Chat[] : [];
-    const updatedStorage = localChats.map(chat =>
+    const localChats = stored ? (JSON.parse(stored) as Chat[]) : [];
+    const updatedStorage = localChats.map((chat) =>
       chat.id === id ? { ...chat, title: editTitle } : chat
     );
     localStorage.setItem('chats', JSON.stringify(updatedStorage));
@@ -81,20 +81,19 @@ export default function ChatList({ userId }: Props) {
         }`}
       >
         <div className="flex justify-between items-center">
-          <div
-            className="flex-1 min-w-0"
-            onClick={() => router.push(`/chats/${chat.id}`)}
-          >
+          <div className="flex-1 min-w-0" onClick={() => router.push(`/chats/${chat.id}`)}>
             {editingId === chat.id ? (
               <input
                 className="text-sm border-b border-gray-300 bg-white text-gray-800 focus:outline-none"
                 value={editTitle}
-                onChange={e => setEditTitle(e.target.value)}
+                onChange={(e) => setEditTitle(e.target.value)}
                 onBlur={() => handleEditSave(chat.id)}
                 autoFocus
               />
             ) : (
-              <h3 className={`font-semibold text-sm truncate ${isActive ? 'text-white' : 'text-gray-900'}`}>
+              <h3
+                className={`font-semibold text-sm truncate ${isActive ? 'text-white' : 'text-gray-900'}`}
+              >
                 {chat.title}
               </h3>
             )}
@@ -105,10 +104,20 @@ export default function ChatList({ userId }: Props) {
 
           <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition">
             <button onClick={() => handleEdit(chat.id, chat.title)}>
-              <FiEdit2 className={isActive ? 'text-white hover:text-indigo-300' : 'text-gray-500 hover:text-indigo-600'} />
+              <FiEdit2
+                className={
+                  isActive
+                    ? 'text-white hover:text-indigo-300'
+                    : 'text-gray-500 hover:text-indigo-600'
+                }
+              />
             </button>
             <button onClick={() => handleDelete(chat.id)}>
-              <FiTrash2 className={isActive ? 'text-white hover:text-red-300' : 'text-gray-500 hover:text-red-600'} />
+              <FiTrash2
+                className={
+                  isActive ? 'text-white hover:text-red-300' : 'text-gray-500 hover:text-red-600'
+                }
+              />
             </button>
           </div>
         </div>
@@ -126,9 +135,7 @@ export default function ChatList({ userId }: Props) {
             <h2 className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide">
               Your conversations
             </h2>
-            <div className="flex flex-col gap-2">
-              {yourChats.map(renderChatItem)}
-            </div>
+            <div className="flex flex-col gap-2">{yourChats.map(renderChatItem)}</div>
           </div>
 
           {last7Days.length > 0 && (
@@ -136,9 +143,7 @@ export default function ChatList({ userId }: Props) {
               <h2 className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide">
                 Last 7 Days
               </h2>
-              <div className="flex flex-col gap-2">
-                {last7Days.map(renderChatItem)}
-              </div>
+              <div className="flex flex-col gap-2">{last7Days.map(renderChatItem)}</div>
             </div>
           )}
         </>

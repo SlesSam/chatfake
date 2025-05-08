@@ -14,12 +14,10 @@ export default function ChatPage() {
     const stored = localStorage.getItem('chats');
     const allChats = stored ? JSON.parse(stored) : [];
 
-   
-    const cleanedChats = allChats.filter((chat: Chat) =>
-      !(chat.userId === user.id && chat.title === 'Nuevo chat')
+    const cleanedChats = allChats.filter(
+      (chat: Chat) => !(chat.userId === user.id && chat.title === 'Nuevo chat')
     );
 
- 
     const newChat = {
       id: Date.now().toString(),
       userId: user.id,

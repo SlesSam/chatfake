@@ -30,7 +30,6 @@ export default function LoginForm() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 to-white px-4">
       <div className="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-md space-y-6">
-
         <div className="text-center">
           <h1 className="text-3xl font-bold text-indigo-600">Welcome to ChatAI</h1>
           <p className="text-gray-700 mt-2">Please enter your email and password to log in.</p>
@@ -74,8 +73,12 @@ export default function LoginForm() {
         </button>
 
         <div className="flex justify-between text-sm text-gray-500">
-          <a href="#" className="hover:text-indigo-600">Forgot password?</a>
-          <a href="#" className="hover:text-indigo-600">Register</a>
+          <a href="#" className="hover:text-indigo-600">
+            Forgot password?
+          </a>
+          <a href="#" className="hover:text-indigo-600">
+            Register
+          </a>
         </div>
       </div>
     </div>

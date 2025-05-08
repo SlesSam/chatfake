@@ -6,16 +6,18 @@ export async function POST(req: NextRequest) {
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
-      'Authorization':  `Bearer ${process.env.OPENROUTER_API_KEY}`, // 🔁 pon tu API KEY de OpenRouter
+      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`, // 🔁 pon tu API KEY de OpenRouter
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'openrouter/nous-hermes-2-mixtral',
+      model: `${process.env.MODELS_AI}`, // 🔁 pon el modelo que quieras usar
       messages: [{ role: 'user', content: message }],
     }),
   });
 
+  console.log(process.env.OPENROUTER_API_KEY);
   const data = await response.json();
+  console.log('[AI Response]', data);
   const reply = data.choices?.[0]?.message?.content || 'Lo siento, no pude responder.';
 
   return NextResponse.json({ reply });

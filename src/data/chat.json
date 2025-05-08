@@ -1,30 +1,30 @@
 [
-    {
-        "id": "101",
-        "userId": "1",
-        "title": "Consulta sobre React",
-        "lastMessage": "¿Cómo uso useEffect correctamente?",
-        "updatedAt": "2025-05-05T12:30:00Z"
-    },
-    {
-        "id": "102",
-        "userId": "2",
-        "title": "Ayuda con CSS",
-        "lastMessage": "No entiendo flexbox",
-        "updatedAt": "2025-05-05T10:00:00Z"
-    },
-    {
-        "id": "103",
-        "userId": "1",
-        "title": "Preguntas sobre IA",
-        "lastMessage": "¿Qué es GPT-4?",
-        "updatedAt": "2025-05-04T18:00:00Z"
-    },
-    {
-        "id": "104",
-        "userId": "2",
-        "title": "Questionario de JavaScript",
-        "lastMessage": "¿Cómo funciona el hoisting?",
-        "updatedAt": "2025-05-05T10:00:00Z"
-    }
+  {
+    "id": "101",
+    "userId": "1",
+    "title": "Consulta sobre React",
+    "lastMessage": "¿Cómo uso useEffect correctamente?",
+    "updatedAt": "2025-05-05T12:30:00Z"
+  },
+  {
+    "id": "102",
+    "userId": "2",
+    "title": "Ayuda con CSS",
+    "lastMessage": "No entiendo flexbox",
+    "updatedAt": "2025-05-05T10:00:00Z"
+  },
+  {
+    "id": "103",
+    "userId": "1",
+    "title": "Preguntas sobre IA",
+    "lastMessage": "¿Qué es GPT-4?",
+    "updatedAt": "2025-05-04T18:00:00Z"
+  },
+  {
+    "id": "104",
+    "userId": "2",
+    "title": "Questionario de JavaScript",
+    "lastMessage": "¿Cómo funciona el hoisting?",
+    "updatedAt": "2025-05-05T10:00:00Z"
+  }
 ]

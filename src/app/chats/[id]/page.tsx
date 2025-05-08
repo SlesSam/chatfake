@@ -4,17 +4,17 @@ import { useEffect, useState } from 'react';
 import ChatInput from '@/components/chats/chatInput';
 import ChatMessages from '@/components/chats/chatMessages';
 import { Message } from '@/types/message';
+
 import { useParams } from 'next/navigation';
 
 export default function ChatPage() {
-
   const { id } = useParams();
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
     const stored = localStorage.getItem('messages');
     const all: Message[] = stored ? JSON.parse(stored) : [];
-    const filtered = all.filter(m => m.chatId === id);
+    const filtered = all.filter((m) => m.chatId === id);
     setMessages(filtered);
   }, [id]);
 
@@ -65,22 +65,26 @@ export default function ChatPage() {
     const storedChats = localStorage.getItem('chats');
     const allChats = storedChats ? JSON.parse(storedChats) : [];
 
-
-    let updatedChats = allChats.map((c: { id: string; title: string; lastMessage: string; updatedAt: string }) =>
-      c.id === id
-        ? {
-            ...c,
-            title: c.title === 'Nuevo chat' ? text : c.title, // Solo cambia si es nuevo
-            lastMessage: aiMessage.text,
-            updatedAt: timestamp,
-          }
-        : c
+    let updatedChats = allChats.map(
+      (c: { id: string; title: string; lastMessage: string; updatedAt: string }) =>
+        c.id === id
+          ? {
+              ...c,
+              title: c.title === 'Nuevo chat' ? text : c.title, // Solo cambia si es nuevo
+              lastMessage: aiMessage.text,
+              updatedAt: timestamp,
+            }
+          : c
     );
 
-    const movedChat = updatedChats.find((c: { id: string; title: string; lastMessage: string; updatedAt: string }) => c.id === id);
+    const movedChat = updatedChats.find(
+      (c: { id: string; title: string; lastMessage: string; updatedAt: string }) => c.id === id
+    );
     updatedChats = [
       movedChat!,
-      ...updatedChats.filter((c: { id: string; title: string; lastMessage: string; updatedAt: string }) => c.id !== id),
+      ...updatedChats.filter(
+        (c: { id: string; title: string; lastMessage: string; updatedAt: string }) => c.id !== id
+      ),
     ];
     localStorage.setItem('chats', JSON.stringify(updatedChats));
     const event = new CustomEvent('refreshChats');
