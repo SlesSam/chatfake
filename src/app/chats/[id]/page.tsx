@@ -66,9 +66,20 @@ export default function ChatPage() {
       const storedChats = localStorage.getItem('chats');
       const allChats = storedChats ? JSON.parse(storedChats) : [];
   
+      // const updatedChats = allChats.map((c: { id: string; title: string; lastMessage: string; updatedAt: string }) =>
+      //   c.id === id
+      //     ? { ...c, title: text, lastMessage: aiMessage.text, updatedAt: timestamp }
+      //     : c
+      // );
+
       const updatedChats = allChats.map((c: { id: string; title: string; lastMessage: string; updatedAt: string }) =>
         c.id === id
-          ? { ...c, title: text, lastMessage: aiMessage.text, updatedAt: timestamp }
+          ? {
+              ...c,
+              title: c.title === 'Nuevo chat' ? text : c.title, // Solo cambia si es nuevo
+              lastMessage: aiMessage.text,
+              updatedAt: timestamp,
+            }
           : c
       );
   
