@@ -29,7 +29,7 @@ export default function ChatPage() {
     localStorage.setItem('chats', JSON.stringify(updatedChats));
 
     router.push(`/chats/${newChat.id}`);
-  }, []);
+  }, [router]);
 
   return null;
 }

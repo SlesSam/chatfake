@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  ignores: ['.next', 'node_modules', 'dist'],
+  ignorePatterns: ["temp.js", "config/*"],
   extends: [
     'next',
     'next/core-web-vitals',

@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+    "lint": "eslint src --ext .js,.ts,.jsx,.tsx",
     "format": "prettier --write .",
     "prepare": "husky install",
     "test": "jest",
