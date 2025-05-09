@@ -15,9 +15,8 @@ export async function POST(req: NextRequest) {
     }),
   });
 
-  console.log(process.env.OPENROUTER_API_KEY);
+ 
   const data = await response.json();
-  console.log('[AI Response]', data);
   const reply = data.choices?.[0]?.message?.content || 'Lo siento, no pude responder.';
 
   return NextResponse.json({ reply });
