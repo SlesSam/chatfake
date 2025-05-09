@@ -11,17 +11,13 @@ describe('ChatInput', () => {
     const textarea = screen.getByPlaceholderText("What's in your mind?...");
     const button = screen.getByRole('button');
 
-    // Escribe en el textarea
     fireEvent.change(textarea, { target: { value: 'Hola mundo' } });
     expect(textarea).toHaveValue('Hola mundo');
 
-    // Envía el formulario
     fireEvent.click(button);
 
-    // onSend ha sido llamado
     expect(mockOnSend).toHaveBeenCalledWith('Hola mundo');
-
-    // El textarea debe estar vacío después de enviar
+  
     expect(textarea).toHaveValue('');
   });
 

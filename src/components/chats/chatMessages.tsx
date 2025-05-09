@@ -14,11 +14,9 @@ type Props = {
 
 export default function ChatMessages({ messages, isLoading, hasPendingReply }: Props) {
   const bottomRef = useRef<HTMLDivElement>(null);
-  // const scrollRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    // if (scrollRef.current) {
-    //   scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    // }
+
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isLoading, hasPendingReply]);
 

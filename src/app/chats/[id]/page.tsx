@@ -69,7 +69,7 @@ export default function ChatPage() {
       console.error('Chat ID is undefined.');
     }
 
-    // Actualiza el título en chats
+
     const storedChats = localStorage.getItem('chats');
     const allChats = storedChats ? JSON.parse(storedChats) : [];
 
