@@ -22,7 +22,7 @@ export default function ChatSidebar() {
     const handleRefresh = () => setRefreshKey((prev) => prev + 1);
     window.addEventListener('refreshChats', handleRefresh);
     return () => window.removeEventListener('refreshChats', handleRefresh);
-  }, [ router]);
+  }, []);
 
   const handleNewChat = () => {
     if (!user) return;
