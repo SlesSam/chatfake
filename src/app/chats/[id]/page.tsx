@@ -10,6 +10,8 @@ import { useParams } from 'next/navigation';
 export default function ChatPage() {
   const { id } = useParams();
   const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasPendingReply, setHasPendingReply] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem('messages');
@@ -36,6 +38,9 @@ export default function ChatPage() {
       timestamp: new Date().toISOString(),
     };
 
+    setHasPendingReply(true);
+    setIsLoading(true);
+
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
@@ -51,6 +56,9 @@ export default function ChatPage() {
 
     const newMessages = [...messages, userMessage, aiMessage];
     setMessages(newMessages);
+    setIsLoading(false);
+    setHasPendingReply(false);
+
     if (id) {
       if (typeof id === 'string') {
         localStorage.setItem('messages', JSON.stringify(newMessages.concat(getOtherMessages(id))));
@@ -69,11 +77,11 @@ export default function ChatPage() {
       (c: { id: string; title: string; lastMessage: string; updatedAt: string }) =>
         c.id === id
           ? {
-              ...c,
-              title: c.title === 'Nuevo chat' ? text : c.title, // Solo cambia si es nuevo
-              lastMessage: aiMessage.text,
-              updatedAt: timestamp,
-            }
+            ...c,
+            title: c.title === 'Nuevo chat' ? text : c.title,
+            lastMessage: aiMessage.text,
+            updatedAt: timestamp,
+          }
           : c
     );
 
@@ -100,7 +108,7 @@ export default function ChatPage() {
   return (
     <main>
       <section className="flex flex-col h-full">
-        <ChatMessages messages={messages} />
+        <ChatMessages messages={messages} isLoading={isLoading} hasPendingReply={hasPendingReply} />
 
         <ChatInput onSend={handleSend} />
       </section>

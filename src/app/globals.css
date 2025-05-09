@@ -1,4 +1,6 @@
-/* === globals.css optimizado con Tailwind + estilo personalizado === */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 @import 'tailwindcss';
 
 :root {
@@ -75,4 +77,15 @@ main {
 .sidebar-scroll {
   overflow-y: auto;
   max-height: calc(100vh - 250px);
+}
+
+.loader {
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
