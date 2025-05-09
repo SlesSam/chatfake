@@ -103,7 +103,7 @@ export default function ChatList({ userId }: Props) {
           </div>
 
           <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition">
-            <button onClick={() => handleEdit(chat.id, chat.title)}>
+            <button aria-label="Editar" onClick={() => handleEdit(chat.id, chat.title)}>
               <FiEdit2
                 className={
                   isActive
