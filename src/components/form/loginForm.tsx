@@ -69,9 +69,9 @@ export default function LoginForm() {
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white p-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
+             className="w-full bg-indigo-500 hover:bg-indigo-400 text-white py-3 rounded-xl font-semibold text-sm transition-all shadow-md"
           >
-            Login
+            Iniciar sesión
           </button>
         </form>
 

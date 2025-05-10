@@ -31,8 +31,8 @@ export default function ChatMessages({ messages, isLoading, hasPendingReply }: P
             <div
               key={msg.id}
               className={`group px-4 py-4 rounded-2xl text-base shadow-sm transition-all duration-300 ${msg.sender === 'ai'
-                ? 'ml-auto mr-5 bg-indigo-50 text-left text-indigo-900 max-w-2xl'
-                : 'mr-auto bg-gray-100 text-left text-gray-800 max-w-[75%]'
+                ? 'ml-auto mr-5 bg-indigo-50 text-left text-indigo-900 max-w-2xl rounded-xl shadow-sm '
+                : 'mr-auto bg-gray-100 text-left text-gray-800 max-w-[75%] rounded-xl shadow-sm '
                 }`}
             >
               {msg.text.split('\n').map((line, i) => (
