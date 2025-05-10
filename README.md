@@ -21,7 +21,7 @@
     npm install
     ```
 
-##  🛠️ Configuración del entorno
+## 🔑 Configuración del entorno
 
     Para que el chatbot funcione correctamente, necesitas 
     una clave de acceso válida para la API de OpenRouter.
@@ -29,7 +29,7 @@
         2.Usa como referencia el archivo .example.env incluido.
         3.Obtén tu clave de API en https://openrouter.ai
 
-## Script 
+## 💻 Script 
 
     ```bash
     npm run dev       # Inicia el servidor de desarrollo
