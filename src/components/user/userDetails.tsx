@@ -56,7 +56,7 @@ export default function UserDetails({ isOpen, onClose }: Props) {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500">Email</p>
-                        <p className="font-medium"> {}</p>
+
                     </div>
                     <button  onClick={handleLogout} className="mt-6 bg-red-100 text-red-600 w-full py-2 rounded-xl hover:bg-red-200 transition">
                         Cerrar sesión
