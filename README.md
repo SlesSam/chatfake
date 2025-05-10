@@ -1,6 +1,7 @@
 # 🤖 ChatFake with AI
 
-    Aplicación de chat con interfaz moderna que simula una conversación con inteligencia artificial usando Next.js, OpenRouter y almacenamiento local.
+    Aplicación de chat con interfaz moderna que simula una conversación con inteligencia 
+    artificial usando Next.js, OpenRouter y almacenamiento local.
 
 ## 🚀 Tecnologías utilizadas
 
@@ -65,3 +66,12 @@
     - Soporte para markdown en las respuestas de la IA
     - Migración futura a backend real (Firebase, Supabase o API REST)
     - Mejora de estructura de carpetas y separación de lógica
+    - **Implementar autenticación real** con:
+        - [NextAuth.js](https://next-auth.js.org/)
+        - [Auth0](https://auth0.com/)
+        - [Firebase Authentication](https://firebase.google.com/products/auth)
+        
+        Esto permitiría:
+        - Gestión segura de usuarios y sesiones
+        - Login con correo, redes sociales o proveedores externos
+        - Mayor escalabilidad y robustez en la app
