@@ -23,7 +23,8 @@
 
 ##  🛠️ Configuración del entorno
 
-    Para que el chatbot funcione correctamente, necesitas una clave de acceso válida para la API de OpenRouter.
+    Para que el chatbot funcione correctamente, necesitas 
+    una clave de acceso válida para la API de OpenRouter.
         1.Crea un archivo llamado .env en la raíz del proyecto.
         2.Usa como referencia el archivo .example.env incluido.
         3.Obtén tu clave de API en https://openrouter.ai
@@ -52,7 +53,8 @@
 
     - Se utilizó el sistema de archivos de Next.js 14 con App Router.
     - Toda la lógica del usuario y chats está persistida con localStorage para mantener el proyecto sin backend.
-    - Las respuestas del bot se gestionan desde /api/chat usando una llamada fetch a OpenRouter, simulando el comportamiento real de un LLM.
+    - Las respuestas del bot se gestionan desde /api/chat usando una llamada fetch a OpenRouter, 
+      simulando el comportamiento real de un LLM.
     - Husky se usa para asegurar buena calidad antes de los commits.
     - Tests cubren componentes clave del flujo del usuario: Login, Input, Sidebar, ChatList, Header.
 
