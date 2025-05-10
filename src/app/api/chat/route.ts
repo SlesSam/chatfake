@@ -6,11 +6,11 @@ export async function POST(req: NextRequest) {
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`, // 🔁 pon tu API KEY de OpenRouter
+      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`, //  pon tu API KEY de OpenRouter
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: `${process.env.MODELS_AI}`, // 🔁 pon el modelo que quieras usar
+      model: `${process.env.MODELS_AI}`, // pon el modelo que quieras usar
       messages: [{ role: 'user', content: message }],
     }),
   });

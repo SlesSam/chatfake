@@ -5,11 +5,13 @@ import { useRouter } from 'next/navigation';
 import ChatList from './chatList';
 import { Bot, Settings } from 'lucide-react';
 import Image from 'next/image';
+import UserDetails from '../user/userDetails';
 
 export default function ChatSidebar() {
   const [user, setUser] = useState<{ id: string; name: string; photo?: string } | null>(null);
   const [refreshKey, setRefreshKey] = useState(0); // para forzar refresco
   const router = useRouter();
+  const [showUserDetails, setShowUserDetails] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem('user');
@@ -73,7 +75,10 @@ export default function ChatSidebar() {
           Settings
         </button>
 
-        <div className="flex items-center gap-2 px-4 py-2 rounded-full border hover:bg-gray-100 transition text-sm text-gray-800">
+        <button
+          onClick={() => setShowUserDetails(true)}
+          className="flex items-center gap-2 px-4 py-2 rounded-full border hover:bg-gray-100 transition text-sm text-gray-800 w-full text-left"
+        >
           {user?.photo ? (
             <Image
               src={user.photo}
@@ -88,8 +93,10 @@ export default function ChatSidebar() {
             </div>
           )}
           <span className="truncate">{user?.name || 'Tu perfil'}</span>
-        </div>
+        </button>
+
       </div>
+      <UserDetails isOpen={showUserDetails} onClose={() => setShowUserDetails(false)} />
     </aside>
   );
 }
