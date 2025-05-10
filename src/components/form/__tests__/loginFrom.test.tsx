@@ -48,7 +48,7 @@ describe('LoginForm', () => {
     render(<LoginForm />)
     expect(screen.getByPlaceholderText('Email')).toBeInTheDocument()
     expect(screen.getByPlaceholderText('Password')).toBeInTheDocument()
-    expect(screen.getByText('Login')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /iniciar sesión/i })).toBeInTheDocument()
   })
 
   it('shows error with invalid credentials', () => {
@@ -59,7 +59,7 @@ describe('LoginForm', () => {
     fireEvent.change(screen.getByPlaceholderText('Password'), {
       target: { value: 'wrongpass' },
     })
-    fireEvent.click(screen.getByText('Login'))
+    fireEvent.click(screen.getByRole('button', { name: /iniciar sesión/i }))
 
     expect(screen.getByText('Correo o contraseña incorrectos.')).toBeInTheDocument()
   })
@@ -72,7 +72,7 @@ describe('LoginForm', () => {
     fireEvent.change(screen.getByPlaceholderText('Password'), {
       target: { value: '123456' },
     })
-    fireEvent.click(screen.getByText('Login'))
+    fireEvent.click(screen.getByRole('button', { name: /iniciar sesión/i }))
 
     expect(mockPush).toHaveBeenCalledWith('/chats')
     expect(localStorage.getItem('user')).toContain('test@example.com')
