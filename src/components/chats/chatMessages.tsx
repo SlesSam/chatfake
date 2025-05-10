@@ -42,7 +42,7 @@ export default function ChatMessages({ messages, isLoading, hasPendingReply }: P
               ))}
 
               {msg.sender === 'ai' && (
-                <div className="mt-4 flex justify-center gap-4 text-sm opacity-0 group-hover:opacity-100 transition-all duration-200">
+                <div className="mt-4 flex justify-center gap-4 text-sm transition-all duration-200">
                   <button
                     title="Copiar"
                     onClick={async () => {
