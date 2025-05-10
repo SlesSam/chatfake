@@ -1,4 +1,5 @@
 # 🤖 ChatFake with AI
+
     Aplicación de chat con interfaz moderna que simula una conversación con inteligencia artificial usando Next.js, OpenRouter y almacenamiento local.
 
 ## 🚀 Tecnologías utilizadas
@@ -12,6 +13,7 @@
     - ✅ **ESLint + Prettier + Husky** para control de calidad
 
 ## 📦 Instalación
+
     ```bash
     git clone https://github.com/tu-usuario/chatfake.git
     cd chatfake
@@ -19,6 +21,7 @@
     ```
 
 ##  🛠️ Configuración del entorno
+
     Para que el chatbot funcione correctamente, necesitas una clave de acceso válida para la API de OpenRouter.
         1.Crea un archivo llamado .env en la raíz del proyecto.
         2.Usa como referencia el archivo .example.env incluido.
@@ -45,6 +48,7 @@
     - Linting con ESLint + Prettier + Husky
 
 ## 🧩 Decisiones técnicas
+
     - Se utilizó el sistema de archivos de Next.js 14 con App Router.
     - Toda la lógica del usuario y chats está persistida con localStorage para mantener el proyecto sin backend.
     - Las respuestas del bot se gestionan desde /api/chat usando una llamada fetch a OpenRouter, simulando el comportamiento real de un LLM.
@@ -52,11 +56,12 @@
     - Tests cubren componentes clave del flujo del usuario: Login, Input, Sidebar, ChatList, Header.
 
 ## 🛠 Posibles mejoras
-    - Agregar pantalla de detalle del usuario (💡 la única funcionalidad pendiente).
+
+    - Detalle completo del perfil del usuario (pendiente)
+    - Añadir para modo claro / oscuro
     - Subida de imagen de perfil.
-    - Animaciones suaves al cambiar de chat.
-    - Mejorar el rendimiento.
-    - Dar funcionalidad a los botones: regenerar, me gusta/no me gusta.
-    - Soporte para markdown en respuestas de la IA (opcional).
-    - Añadir para modo oscuro y claro (light/dark mode)
-    - Mejorar en la estructura de carpetas
+    - Animaciones suaves al cambiar de chat
+    - Funcionalidad real de los botones de feedback (👍 👎 ♻️)
+    - Soporte para markdown en las respuestas de la IA
+    - Migración futura a backend real (Firebase, Supabase o API REST)
+    - Mejora de estructura de carpetas y separación de lógica
