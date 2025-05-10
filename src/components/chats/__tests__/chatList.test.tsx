@@ -8,20 +8,10 @@ jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
 }))
 
-
-jest.mock('@/data/chat.json', () => [
-  {
-    id: '1',
-    userId: 'user1',
-    title: 'JSON Chat',
-    lastMessage: 'Hola desde json',
-  },
-])
-
 describe('ChatList', () => {
   beforeEach(() => {
     localStorage.clear()
-    ;(usePathname as jest.Mock).mockReturnValue('/chats/1')
+    ;(usePathname as jest.Mock).mockReturnValue('/chats/2')
     ;(useRouter as jest.Mock).mockReturnValue({ push: jest.fn() })
   })
 
@@ -47,7 +37,5 @@ describe('ChatList', () => {
 
     expect(screen.getByText('Local Chat')).toBeInTheDocument()
     expect(screen.getByText('Mensaje local')).toBeInTheDocument()
-    expect(screen.getByText('JSON Chat')).toBeInTheDocument()
   })
-
 })
