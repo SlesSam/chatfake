@@ -8,28 +8,38 @@ export default function ChatPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    if (!user?.id) return;
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  if (!user?.id) return;
 
-    const stored = localStorage.getItem('chats');
-    const allChats = stored ? JSON.parse(stored) : [];
+  const stored = localStorage.getItem('chats');
+  const allChats = stored ? JSON.parse(stored) : [];
 
-    const cleanedChats = allChats.filter(
-      (chat: Chat) => !(chat.userId === user.id && chat.title === 'Nuevo chat')
-    );
+  const userChats = allChats.filter((chat: Chat) => chat.userId === user.id);
 
-    const newChat = {
-      id: Date.now().toString(),
-      userId: user.id,
-      title: 'Nuevo chat',
-      lastMessage: 'Empieza a chatear...',
-    };
+  if (userChats.length > 0) {
+    // Si ya tiene chats previos, lo llevamos al último chat
+    router.push(`/chats/${userChats[0].id}`);
+    return;
+  }
 
-    const updatedChats = [newChat, ...cleanedChats];
-    localStorage.setItem('chats', JSON.stringify(updatedChats));
+  // Si no tiene chats aún, creamos uno nuevo
+  const newChat = {
+    id: Date.now().toString(),
+    userId: user.id,
+    title: 'Nuevo chat',
+    lastMessage: 'Empieza a chatear...',
+  };
 
-    router.push(`/chats/${newChat.id}`);
-  }, []);
+  const updatedChats = [newChat, ...allChats];
+  localStorage.setItem('chats', JSON.stringify(updatedChats));
 
-  return null;
-}
+  router.push(`/chats/${newChat.id}`);
+}, []);
+ 
+  return (
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h1 className="text-2xl font-bold">Cargando...</h1>
+      <p className="mt-4 text-gray-500">Redirigiendo a tu chat...</p>
+    </div>
+  );
+} 

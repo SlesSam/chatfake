@@ -1,6 +1,5 @@
 'use client';
 
-import chatsData from '@/data/chat.json';
 import { Chat } from '@/types/chat';
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
@@ -21,13 +20,8 @@ export default function ChatList({ userId }: Props) {
     const stored = localStorage.getItem('chats');
     const localChats = stored ? (JSON.parse(stored) as Chat[]) : [];
 
-    const baseChats = chatsData as Chat[];
+  
     const combined = [...localChats];
-
-    baseChats.forEach((jsonChat) => {
-      const exists = localChats.some((c) => c.id === jsonChat.id);
-      if (!exists) combined.push(jsonChat);
-    });
 
     const filtered = combined.filter((chat) => chat.userId === userId);
     setUserChats(filtered);
